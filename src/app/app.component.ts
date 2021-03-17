@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { saveAs } from 'file-saver';
 import domtoimage from 'dom-to-image';
 
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -16,6 +18,7 @@ export class AppComponent implements OnInit {
   percentColor1 = 0;
   percentColor2 = 100;
   fontSize = 52;
+
 
   layout = {
     horizontal: false,
@@ -44,8 +47,13 @@ export class AppComponent implements OnInit {
   }
 
   setLayout(selectedLayout: string) {
-      this.layout = ({...this.layout, [selectedLayout] : true})
-      console.log(this.layout)
+    this.layout = {
+      horizontal: false,
+      horizontalRev: false,
+      vertical: false,
+      verticalRev: false,
+    };
+      this.layout = ({...this.layout, [selectedLayout] : true});
     }
 
   saveImage(element: HTMLDivElement) {
